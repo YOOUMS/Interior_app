@@ -50,6 +50,25 @@ class HomePage extends StatelessWidget {
                     ),
                   )
                 ],
+              ),
+              Row(
+                children: [
+                  Container(
+                    child: Text("Popluar"),
+                  ),
+                  Container(
+                    child: Text("Recommend"),
+                  ),
+                  Container(
+                    child: Text("New"),
+                  ),
+                  Container(
+                    child: Text("Oldest"),
+                  ),
+                  Container(
+                    child: Text("People"),
+                  )
+                ],
               )
             ],
           )),
