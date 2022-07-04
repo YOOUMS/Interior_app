@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
@@ -9,7 +10,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-          padding: EdgeInsets.only(top: 50, left: 20, right: 20),
+          padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
           child: Column(
             children: [
               Row(
@@ -17,14 +18,14 @@ class HomePage extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         "Kelly Hoppen",
                         style: TextStyle(
                             fontSize: 30, fontWeight: FontWeight.bold),
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: 10),
-                        child: Text(
+                        margin: const EdgeInsets.only(top: 10),
+                        child: const Text(
                           "Interior designer",
                           style: TextStyle(
                               color: Color.fromARGB(255, 159, 151, 151)),
@@ -32,43 +33,272 @@ class HomePage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Spacer(
+                  const Spacer(
                     flex: 1,
                   ),
                   Container(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     width: 40,
                     height: 40,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(100),
-                      color: Color.fromARGB(255, 162, 162, 255),
+                      color: const Color.fromARGB(255, 162, 162, 255),
                     ),
                     child: Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           image: DecorationImage(
                               image: AssetImage("assets/search.png"))),
                     ),
                   )
                 ],
               ),
-              Row(
-                children: [
-                  Container(
-                    child: Text("Popluar"),
-                  ),
-                  Container(
-                    child: Text("Recommend"),
-                  ),
-                  Container(
-                    child: Text("New"),
-                  ),
-                  Container(
-                    child: Text("Oldest"),
-                  ),
-                  Container(
-                    child: Text("People"),
-                  )
-                ],
+              Container(
+                margin: const EdgeInsets.only(top: 20),
+                height: 20,
+                child: ListView(
+                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(right: 20),
+                      child: const Text(
+                        "Popluar",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 15),
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(right: 20),
+                      child: const Text(
+                        "Recommend",
+                        style: TextStyle(fontSize: 15),
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(right: 20),
+                      child: const Text(
+                        "New",
+                        style: TextStyle(fontSize: 15),
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(right: 20),
+                      child: const Text(
+                        "Oldest",
+                        style: TextStyle(fontSize: 15),
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(right: 20),
+                      child: const Text(
+                        "People",
+                        style: TextStyle(fontSize: 15),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 20),
+                height: 300,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.only(right: 20),
+                      width: 254,
+                      height: 340,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          image: const DecorationImage(
+                              fit: BoxFit.cover,
+                              image: NetworkImage(
+                                  "https://cdn.discordapp.com/attachments/839079833950486538/993317740041470092/unknown.png"))),
+                    ),
+                    Container(
+                      width: 254,
+                      height: 340,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          image: const DecorationImage(
+                              fit: BoxFit.cover,
+                              image: NetworkImage(
+                                  "https://houseandhome.com/wp-content/uploads/2019/01/crop-Collective_Studio4.jpg"))),
+                    ),
+                    Container(
+                      width: 254,
+                      height: 340,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          image: const DecorationImage(
+                              fit: BoxFit.cover,
+                              image: NetworkImage(
+                                  "https://houseandhome.com/wp-content/uploads/2019/01/crop-Collective_Studio4.jpg"))),
+                    ),
+                    Container(
+                      width: 254,
+                      height: 340,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          image: const DecorationImage(
+                              fit: BoxFit.cover,
+                              image: NetworkImage(
+                                  "https://houseandhome.com/wp-content/uploads/2019/01/crop-Collective_Studio4.jpg"))),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 20),
+                child: Row(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(right: 25),
+                      width: 25,
+                      height: 25,
+                      decoration: const BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage("assets/save.png"))),
+                    ),
+                    Container(
+                      width: 25,
+                      height: 25,
+                      decoration: const BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage("assets/user.png"))),
+                    ),
+                    const Spacer(
+                      flex: 1,
+                    ),
+                    Container(
+                        width: 20,
+                        height: 20,
+                        decoration: const BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("assets/arrow.png"))))
+                  ],
+                ),
+              ),
+              Container(
+                  margin: EdgeInsets.only(top: 20),
+                  height: 100,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(right: 20),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              width: 70,
+                              height: 70,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(100),
+                                  image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: AssetImage("assets/user1.jpg"))),
+                            ),
+                            Text("Jean-Louis")
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(right: 20),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              width: 70,
+                              height: 70,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(100),
+                                  image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: AssetImage("assets/user2.jpg"))),
+                            ),
+                            Text("Philippe")
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(right: 20),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              width: 70,
+                              height: 70,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(100),
+                                  image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: AssetImage("assets/user3.jpg"))),
+                            ),
+                            Text("Marcel")
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(right: 20),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              width: 70,
+                              height: 70,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(100),
+                                  image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: AssetImage("assets/user4.jpg"))),
+                            ),
+                            Text("Greg")
+                          ],
+                        ),
+                      ),
+                    ],
+                  )),
+              Container(
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black.withOpacity(.2),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 5))
+                    ]),
+                margin: EdgeInsets.only(top: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Tanya",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 25),
+                        ),
+                        Text(
+                          "Manager",
+                          style: TextStyle(
+                              fontSize: 12,
+                              color: Color.fromARGB(255, 188, 188, 188)),
+                        )
+                      ],
+                    ),
+                    Text(
+                      "+ \$560",
+                      style: TextStyle(
+                        color: const Color.fromARGB(255, 162, 162, 255),
+                      ),
+                    )
+                  ],
+                ),
               )
             ],
           )),
